@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Testing Passport, Node.js and EJS</title>
+  <link href="../public/rudimental.css" rel="stylesheet" type="text/css">
+</head>
+  <body>
+    <h1>Testing Passport, Node.js and EJS</h1>
+
+    <% include nav.partial.ejs %>
+
+    <% if (!user) { %>
+
+      <h2>Welcome! Please sign in.</h2>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/login">Sign In</a> &ndash; So you can do stuff.</li>
+      </ul>
+
+    <% } else { %>
+
+      <h2>Hello, <%= user.username %>.</h2>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/account">Account</a> &ndash; What we know about you.</li>
+        <li><a href="/logout">Sign Out</a> &ndash; Because this is like your bank account.</li>
+      </ul>
+
+    <% } %>
+
+    <h2>MongoDB Experiments</h2>
+    <ul>
+      <a href="../public/dbtests.html">MongoDB Testing</a>
+    </ul>
+
+  </body>
+</html>

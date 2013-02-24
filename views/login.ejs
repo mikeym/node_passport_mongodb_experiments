@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Testing Passport, Node.js and EJS - Sign In</title>
+  <link href="../public/rudimental.css" rel="stylesheet" type="text/css">
+</head>
+  <body>
+    <h1>Sign in to your account</h1>
+
+    <% include nav.partial.ejs %>
+
+    <% if (message) { %>
+      <p class="errormsg"><%= message %></p>
+    <% } %>
+
+    <form action="/login" method="post">
+      <div>
+        <label>User Name: </label>
+        <input type="text" name="username">
+      </div>
+      <div>
+        <label>Password: </label>
+        <input type="password" name="password">
+      </div>
+      <div>
+        <input type="submit" value="Sign In">
+      </div>
+    </form>
+
+    <!-- TODO maybe hint -->
+
+  </body>
+</html>

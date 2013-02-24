@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MongoDB Testing</title>
+  <link href="rudimental.css" rel="stylesheet" type="text/css">
+</head>
+  <body>
+
+    <header id="header">
+      <h1 class="title">MongoDB Testing</h1>
+    </header>
+
+    <form action="/addscore" name="addscore" method="post">
+      <div>
+        <label>Username:</label>
+        <input type="text" name="user_name">
+      </div>
+      <div>
+        <label>Score: </label>
+        <input type="text" name="user_score">
+      </div>
+      <div>
+        <label>Add an entry to the database: </label>
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+
+    <p><a href="/top-ten">Top ten users...</a></p>
+
+    <p><a href="/clearusers">Don't Push the Big Red Button!</a></p>
+
+    <p><a href="../">Back...</a></p>
+
+  </body>
+
+</html>

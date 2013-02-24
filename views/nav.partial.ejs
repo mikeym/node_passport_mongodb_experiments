@@ -1,0 +1,9 @@
+<!-- Navigation bar shared by various templates -->
+<nav id="EJSNavBar">
+  <ul>
+    <li><a href="/">Home</a> | </li>
+    <% if (user) { %> <li><a href="/account">Account</a> | </li> <% } %>
+    <% if (user) { %> <li><a href="/logout">Sign Out</a></li> <% } %>
+    <% if (!user) { %> <li><a href="/login">Sign In</a></li> <% } %>
+  </ul>
+</nav>

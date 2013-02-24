@@ -1,0 +1,18 @@
+{
+  "name": "authserver",
+  "version": "0.1",
+  "private": false,
+  "author": "Mikey Micheletti",
+  "engines": {
+    "node": "0.6.11",
+    "npm": "1.1.1"
+  },
+  "dependencies": {
+    "express": "2.5.8",
+    "connect-flash": ">= 0.0.0",
+    "mongodb": "1.0.2",
+    "ejs": "0.4.3",
+    "passport": ">= 0.0.0",
+    "passport-local": ">= 0.0.0"
+  }
+}

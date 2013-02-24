@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Testing Passport, Node.js and EJS - Sign In</title>
+  <link href="../public/rudimental.css" rel="stylesheet" type="text/css">
+</head>
+  <body>
+    <h1>Your account</h1>
+
+    <% include nav.partial.ejs %>
+
+    <% if (user.id) { %>
+      <p>user.id: <%= user.id %></p>
+    <% } %>
+
+    <% if (user.username) { %>
+      <p>user.username: <%= user.username %></p>
+    <% } %>
+
+    <% if (user.displayName) { %>
+      <p>user.displayName: <%= user.displayName %></p>
+    <% } %>
+
+    <% if (user.provider) { %>
+      <p>user.provider: <%= user.provider %></p>
+    <% } %>
+
+    <% if (user.emails) { %>
+      <p>user.emails[0].value: <%= user.emails[0].value %></p>
+    <% } %>
+
+    <% if (user.email) { %>
+      <p>user.email: <%= user.email %></p>
+    <% } %>
+
+  </body>
+</html>
