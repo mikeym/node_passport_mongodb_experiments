@@ -26,11 +26,52 @@
       </div>
     </form>
 
-    <p><a href="/top-ten">Top ten users...</a></p>
+    <h2>Top Ten Scores</h2>
+    <div id="topten"><!-- We'll put the top ten scores here --></div>
 
     <p><a href="/clearusers">Don't Push the Big Red Button!</a></p>
 
     <p><a href="../">Back...</a></p>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+
+      // Show the top ten list automatically
+      $.getJSON('/top-ten', function(data) { ; })
+
+        // When the /top-ten JSON get is successful
+        .success(function(data) {
+          var listItems = [];
+
+          // The returned data will include a "users" key we can ignore,
+          // and a list of users and scores we'll want to loop through.
+          // We only expect one list back but this seems good practice.
+          $.each(data, function(usersKey, usersList) {
+
+            // Loop through each user and score, creating a list item and adding
+            // these to the listItems array. The list item includes name and score.
+            $.each(usersList, function(idx, user) {
+              listItems.push('<li id"' + user.user_name + '">' +
+                             user.user_name + ': ' + user.user_score +
+                             '</li>');
+            });
+          });
+
+          // Create the list and add the top ten user scores to it
+          $('<ul/>', {
+            'class': 'top-ten-user-list',
+            html: listItems.join('')
+          }).appendTo('#topten');
+        })
+
+        // When the /top-ten JSON call fails show a nastygram
+        .error(function(data) {
+          $('<p/>', {
+            'class': 'errormsg',
+            html: 'Unable to get list of top ten scores'
+          }).appendTo('#topten');
+        });
+    </script>
 
   </body>
 

@@ -238,13 +238,13 @@ mongodb.connect( mongodbURL, { }, function(error, db) {
     // get the top ten scores in the database
     dbMethods.topTen = function(callback) {
       collection.find()
-                .sort({score: -1})
+                .sort({user_score: -1})
                 .limit(10)
                 .toArray(function(error, results) {
                           var output = [ ],
                               i;
                           for (i in results) {
-                            output.push( {
+                            output.push({
                               user_name: results[i].user_name,
                               user_score: results[i].user_score
                             });
@@ -272,7 +272,7 @@ function main_page(req, res) {
   if (req.body.user_name) {
     // the body parser will have the data
     userName = req.body.user_name;
-    userScore = req.body.user_score;
+    userScore = parseInt(req.body.user_score);
     console.log('setting score for ' + userName + ', ' + userScore);
 
     //attempt to fetch existing user
